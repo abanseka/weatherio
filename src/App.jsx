@@ -1,10 +1,10 @@
 import "./App.css";
+import SearchBar from "./components/searchBar/searchBar";
 
 function App() {
   return (
     <>
-      <h1 className="title">WeatherIO</h1>
-      <button>Hello Weather</button>
+      <SearchBar />
     </>
   );
 }
