@@ -1,0 +1,17 @@
+.weatherStatusContainer {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  padding: 40px;
+
+  border-radius: 20px;
+  border: 3px solid var(--gray);
+}
+
+.weatherIconWrapper {
+  display: grid;
+  place-items: center;
+}
