@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --gray: #646464;
+}
+
 body {
   padding: 20px;
   line-height: 1.5;
