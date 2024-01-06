@@ -6,13 +6,16 @@
 
 :root {
   --gray: #646464;
+  --black: #292929;
+  --body-bg: #d9d9d9;
 }
 
 body {
   padding: 20px;
   line-height: 1.5;
   font-weight: 400;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--body-bg);
 }
 
 a {

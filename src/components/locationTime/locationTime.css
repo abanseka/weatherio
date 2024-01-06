@@ -1,0 +1,36 @@
+.locationContainer {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px;
+
+  border-radius: 20px;
+  border: 3px solid var(--gray);
+}
+
+.locationName {
+  color: var(--black);
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.locationDateTimeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.locationTime {
+  color: var(--black);
+  font-size: 96px;
+  font-weight: 700;
+}
+
+.locationDate {
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
