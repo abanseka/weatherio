@@ -1,0 +1,26 @@
+.miscContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 10px;
+
+  border-radius: 20px;
+  border: 3px solid var(--gray);
+
+  & .humidityWrapper,
+  & .pressureWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    & .humidityValue,
+    & .pressureValue {
+      color: var(--black);
+      font-size: 32px;
+      font-weight: 600;
+    }
+  }
+}
