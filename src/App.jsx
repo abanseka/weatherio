@@ -35,7 +35,7 @@ function App() {
         temp: roundDown(convertToCelsius(data.main.temp)),
         humidity: data.main.humidity,
         pressure: data.main.pressure,
-        time: formatTime(data.dt, hourOpts),
+        time: formatTime(data.dt, { ...hourOpts, hourCycle: "h23" }),
         date: formatTime(data.dt, dateOpts),
         sunrise: formatTime(data.sys.sunrise, hourOpts),
         sunset: formatTime(data.sys.sunset, hourOpts),
