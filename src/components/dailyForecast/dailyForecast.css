@@ -1,0 +1,32 @@
+.dailyForecastContainer {
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 40px;
+  gap: 30px;
+
+  border-radius: 20px;
+  border: 3px solid var(--gray);
+
+  & .dailyForecastWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    color: var(--black);
+
+    & .forecastTemp {
+      width: 80px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    & .forecastDate {
+      width: 80px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+}

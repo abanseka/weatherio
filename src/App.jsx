@@ -4,6 +4,7 @@ import SearchBar from "./components/searchBar/searchBar";
 import WeatherStatus from "./components/weatherStatus/weatherStatus";
 import TempSunCycle from "./components/tempSunCycle/tempSunCycle";
 import MiscForecast from "./components/miscForecast/miscForecast";
+import DailyForecast from "./components/dailyForecast/dailyForecast";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <WeatherStatus />
         <TempSunCycle />
         <MiscForecast />
+        <DailyForecast />
       </div>
     </>
   );
