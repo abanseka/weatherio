@@ -1,4 +1,5 @@
 .tempContainer {
+  grid-area: three;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

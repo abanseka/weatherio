@@ -11,8 +11,14 @@
 }
 
 body {
+  height: 100vh;
+  height: 100dvh;
   padding: 20px;
   line-height: 1.5;
+  display: grid;
+  place-content: center;
+
+  letter-spacing: 1.2px;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
   background-color: var(--body-bg);
