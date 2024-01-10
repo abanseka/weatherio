@@ -9,10 +9,10 @@ import HourlyForecast from "./components/hourlyForecast/hourlyForecast";
 
 function App() {
   return (
-    <main>
+    <>
       <SearchBar />
 
-      <div className="app">
+      <div className="dashboard">
         <LocationTime />
         <WeatherStatus />
         <TempSunCycle />
@@ -20,7 +20,7 @@ function App() {
         <DailyForecast />
         <HourlyForecast />
       </div>
-    </main>
+    </>
   );
 }
 

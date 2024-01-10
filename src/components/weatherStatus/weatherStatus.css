@@ -1,3 +1,7 @@
+.weatherStatusContainer:hover {
+  background-color: snow !important;
+}
+
 .weatherStatusContainer {
   grid-area: two;
   width: 100%;
@@ -15,4 +19,14 @@
 .weatherIconWrapper {
   display: grid;
   place-items: center;
+}
+
+.weatherStatus {
+  font-size: clamp(22px, 30px, 42px);
+}
+
+@media (width <= 480px) {
+  .weatherStatusContainer {
+    padding: 10px;
+  }
 }

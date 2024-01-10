@@ -52,7 +52,10 @@ const HourlyForecast = () => {
           <h2 className="hour">{hour}</h2>
 
           <div className="temp">
-            <img src={temp.icon} alt="" className="tempIcon" />
+            <div className="iconWrapper">
+              <img src={temp.icon} alt="" className="tempIcon" />
+            </div>
+
             <h3 className="tempValue">
               {temp.value}
               {temp.unit}
@@ -60,7 +63,10 @@ const HourlyForecast = () => {
           </div>
 
           <div className="wind">
-            <img src={wind.icon} alt="" className="windIcon" />
+            <div className="iconWrapper">
+              <img src={wind.icon} alt="" className="windIcon" />
+            </div>
+
             <h3 className="windSpeed">
               {wind.value}
               {wind.unit}

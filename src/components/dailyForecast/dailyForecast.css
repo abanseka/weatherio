@@ -1,9 +1,12 @@
+.dailyForecastContainer:hover {
+  background-color: snow;
+}
+
 .dailyForecastContainer {
   grid-area: five;
-  width: 440px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 20px 40px;
   gap: 30px;
 
@@ -16,18 +19,21 @@
     justify-content: space-between;
     gap: 16px;
 
-    color: var(--black);
-
-    & .forecastTemp {
-      width: 80px;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
+    & .forecastTemp,
     & .forecastDate {
       width: 80px;
-      font-size: 20px;
       font-weight: 700;
+      font-size: clamp(14px, 18px, 24px);
     }
+
+    & img {
+      width: 35px;
+    }
+  }
+}
+
+@media (width <= 480px) {
+  .dailyForecastContainer {
+    padding: 10px;
   }
 }
