@@ -12,9 +12,14 @@
 
 body {
   padding: 20px;
+  margin-block-start: auto;
+
+  color: var(--black);
+  letter-spacing: 1.2px;
   line-height: 1.5;
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+
   background-color: var(--body-bg);
 }
 

@@ -1,9 +1,68 @@
-.app {
-  max-width: 1380px;
+.dashboard {
+  width: 100%;
+  max-width: 1440px;
+  min-height: calc(100vh - 120px);
   margin-inline: auto;
-  margin-block-start: 48px;
+  margin-block-start: 20px;
 
+  gap: 16px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-areas:
+    "one two three four"
+    "five six six six";
+}
+
+@media (width <= 1282px) {
+  .dashboard {
+    grid-template-areas:
+      "one two three"
+      "six six six"
+      "four  five five";
+  }
+}
+
+@media (width <= 930px) {
+  .dashboard {
+    grid-template-areas:
+      "one three"
+      "six six"
+      "two four"
+      "five five";
+  }
+}
+
+@media (width <= 700px) {
+  .dashboard {
+    grid-template-areas:
+      "one two"
+      "three three"
+      "six six"
+      "four four"
+      "five five";
+  }
+}
+
+@media (width <= 620px) {
+  .dashboard {
+    grid-template-areas:
+      "one one"
+      "three three"
+      "six six"
+      "two two"
+      "four four"
+      "five five";
+  }
+}
+
+/* update track size */
+@media (width <= 1440px) {
+  .dashboard {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (width <= 420px) {
+  .dashboard {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }

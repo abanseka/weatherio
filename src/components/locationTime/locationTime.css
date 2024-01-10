@@ -1,7 +1,13 @@
+.locationContainer:hover {
+  background-color: snow !important;
+}
+
 .locationContainer {
+  grid-area: one;
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 40px;
   gap: 30px;
@@ -11,8 +17,8 @@
 }
 
 .locationName {
-  color: var(--black);
   font-size: 36px;
+  font-size: 2ch;
   font-weight: 700;
 }
 
@@ -23,14 +29,19 @@
 }
 
 .locationTime {
-  color: var(--black);
-  font-size: 96px;
   font-weight: 700;
+  text-align: center;
+  font-size: clamp(32px, 48px, 96px);
 }
 
 .locationDate {
-  color: var(--black);
   font-size: 20px;
   font-weight: 400;
   text-align: center;
+}
+
+@media (width <= 480px) {
+  .locationContainer {
+    padding: 10px;
+  }
 }

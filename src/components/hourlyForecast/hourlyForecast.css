@@ -1,0 +1,89 @@
+.hourlyForecastwrapper:hover {
+  background-color: snow !important;
+}
+
+.hourlyForecastContainer {
+  grid-area: six;
+
+  gap: 16px;
+  display: grid;
+  grid-template-areas: "h1 h2 h3 h4 h5";
+
+  & .hourlyForecastwrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 30px;
+
+    border-radius: 20px;
+    border: 3px solid #646464;
+
+    & .hour {
+      font-weight: 700;
+      font-size: clamp(16px, 18px, 24px);
+    }
+
+    & .temp,
+    & .wind {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      & .iconWrapper {
+        width: 55px;
+        display: grid;
+        place-items: center;
+      }
+
+      & img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    & .temp,
+    & .wind {
+      & .windSpeed,
+      & .tempValue {
+        font-weight: 700;
+        text-align: center;
+        font-size: clamp(14px, 18px, 22px);
+      }
+    }
+  }
+}
+
+@media (width <= 930px) {
+  .hourlyForecastContainer {
+    grid-template-areas:
+      "h1 h2 h2 h3"
+      "h1 h4 h4 h5";
+  }
+}
+
+@media (width <= 930px) {
+  .hourlyForecastContainer {
+    grid-template-areas:
+      "h1 h2"
+      "h3 h4"
+      "h5 h5";
+  }
+}
+
+@media (width <= 405px) {
+  .hourlyForecastContainer {
+    & .hourlyForecastwrapper {
+      padding: 10px;
+    }
+    grid-template-areas:
+      "h1 h1"
+      "h2 h2"
+      "h3 h3"
+      "h4 h4"
+      "h5 h5";
+  }
+}
