@@ -25,12 +25,16 @@
 
   & .tempStatus {
     text-align: center;
-    font-size: clamp(14px, 16px, 24px);
+    font-weight: 500;
+    font-size: clamp(14px, 18px, 24px);
   }
 
   & .tempValue {
-    font-size: clamp(30px, 42px, 80px);
+    width: 130px;
+    margin-top: 5px;
+    text-align: center;
     font-weight: 700;
+    font-size: clamp(30px, 42px, 80px);
   }
 }
 
@@ -53,12 +57,12 @@
     text-align: center;
     & .sunTime {
       font-weight: 600;
-      font-size: clamp(14px, 16px, 22px);
+      font-size: clamp(14px, 22px, 24px);
     }
 
     & .sunStatus {
-      font-weight: 400;
-      font-size: clamp(14px, 16px, 22px);
+      font-weight: 500;
+      font-size: clamp(14px, 18px, 22px);
     }
   }
 }

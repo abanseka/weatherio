@@ -1,15 +1,31 @@
+import PropTypes from "prop-types";
 import mapPin from "../../assets/searchbar/mapPin.svg";
 import searchIcon from "../../assets/searchbar/searchIcon.svg";
 import "./searchBar.css";
 
-const SearchBar = () => {
+export const SearchBar = ({ query, setQuery }) => {
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      setQuery(e.currentTarget.value);
+      e.currentTarget.value = "";
+    }
+  };
+
   return (
-    <form className="searchInput">
+    <div className={`searchInput ${!query && "centeredSearch"}`}>
       <img src={searchIcon} alt="search icon" />
-      <input type="text" placeholder="Search for your preffered city" />
+      <input
+        type="text"
+        defaultValue={query}
+        onKeyDown={handleKeyPress}
+        placeholder="Search for your preferred city..."
+      />
       <img src={mapPin} alt="location icon" />
-    </form>
+    </div>
   );
 };
 
-export default SearchBar;
+SearchBar.propTypes = {
+  query: PropTypes.string.isRequired,
+  setQuery: PropTypes.func.isRequired,
+};

@@ -17,9 +17,10 @@
 }
 
 .locationName {
-  font-size: 36px;
-  font-size: 2ch;
+  width: 160px;
+  text-align: center;
   font-weight: 700;
+  font-size: clamp(14px, 18px, 24px);
 }
 
 .locationDateTimeContainer {
