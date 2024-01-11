@@ -14,9 +14,23 @@ const convertToCelsius = (k) => k - 272.15;
 const formatTime = (ts, opts = {}) =>
   new Date(ts * 1000).toLocaleString("en-US", opts);
 
+// app
 function App() {
   const [query, setQuery] = useState("");
   const [weatherData, setWeatherData] = useState({});
+
+  const removeOnTimeOut = useCallback(() => {
+    const DELAY = 5000;
+    const $errElement = document.querySelector(".notFound");
+
+    if ($errElement) {
+      setTimeout(() => {
+        $errElement.classList.add("hidden");
+      }, DELAY);
+
+      $errElement.classList.remove("hidden");
+    }
+  }, []);
 
   const fetchWeather = useCallback(async () => {
     try {
@@ -29,16 +43,22 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
 
+      if (data.cod === "404") {
+        setWeatherData({ errMsg: data.message, code: 404 });
+        setQuery("");
+        return;
+      }
+
       const appData = {
         location: data.name,
-        weather: data.weather[0].description,
-        temp: roundDown(convertToCelsius(data.main.temp)),
         humidity: data.main.humidity,
         pressure: data.main.pressure,
-        time: formatTime(data.dt, { ...hourOpts, hourCycle: "h23" }),
+        weather: data.weather[0].main,
         date: formatTime(data.dt, dateOpts),
-        sunrise: formatTime(data.sys.sunrise, hourOpts),
         sunset: formatTime(data.sys.sunset, hourOpts),
+        sunrise: formatTime(data.sys.sunrise, hourOpts),
+        temp: roundDown(convertToCelsius(data.main.temp)),
+        time: formatTime(data.dt, { ...hourOpts, hourCycle: "h23" }),
       };
 
       setWeatherData(appData);
@@ -48,14 +68,19 @@ function App() {
   }, [query]);
 
   useEffect(() => {
-    !!query && fetchWeather();
-  }, [fetchWeather, query]);
+    query && fetchWeather();
+    removeOnTimeOut();
+  }, [fetchWeather, query, weatherData, removeOnTimeOut]);
 
   return (
     <main className="app">
+      {weatherData?.code === 404 && (
+        <p className="notFound">{weatherData?.errMsg ?? 404}!</p>
+      )}
+
       <SearchBar query={query} setQuery={setQuery} />
 
-      {!!query && (
+      {!!query && weatherData?.code !== 404 && (
         <div className="dashboard">
           <LocationTime
             location={weatherData?.location}

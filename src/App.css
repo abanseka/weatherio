@@ -3,13 +3,37 @@
   position: relative;
 }
 
+.notFound {
+  min-width: 200px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+
+  font-weight: 500;
+  font-size: clamp(14px, 16px, 18px);
+  text-transform: capitalize;
+
+  border-radius: 10px;
+  border: 3px solid var(--gray);
+  background-color: lightcoral;
+  animation: toastAnimation 1s ease-in-out;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
 .dashboard {
   width: 100%;
   max-width: 1440px;
-  min-height: calc(100dvh - 150px);
   margin-inline: auto;
   margin-block-start: 50px;
   animation: fadeIn 1s ease-in;
+  min-height: calc(100dvh - 150px);
 
   gap: 16px;
   display: grid;
@@ -17,6 +41,8 @@
     "one two three four"
     "five six six six";
 }
+
+/********************** animations */
 
 @keyframes fadeIn {
   0% {
@@ -26,6 +52,41 @@
     opacity: 1;
   }
 }
+
+@keyframes toastAnimation {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/********************** animations */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes toastAnimation {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/***************** media queries */
 
 @media (width <= 1282px) {
   .dashboard {
