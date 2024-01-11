@@ -1,3 +1,6 @@
 # weather.io
 
-![Screenshot from 2024-01-10 20-51-01](https://github.com/abanseka/weatherio/assets/78860665/c851eb8c-9db7-4cc4-903c-f4d9e91f0538)
+
+
+https://github.com/abanseka/weatherio/assets/78860665/939884c1-6d39-4ea4-93b1-21d8bbea9e49
+
