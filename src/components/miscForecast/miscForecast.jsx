@@ -1,19 +1,20 @@
+import PropTypes from "prop-types";
 import humidityIcon from "../../assets/app/humidityIcon.svg";
 import pressureIcon from "../../assets/app/pressureIcon.svg";
 import "./miscForecast.css";
 
-const MiscForecast = () => {
+const MiscForecast = ({ pressure, humidity }) => {
   return (
     <div className="miscContainer">
       <div className="humidityWrapper">
         <img src={humidityIcon} alt="" className="humidityIcon" />
-        <h2 className="humidityValue">41%</h2>
-        <p className="humitidyLabel">Humidity</p>
+        <h2 className="humidityValue">{humidity}%</h2>
+        <p className="humidityLabel">Humidity</p>
       </div>
 
       <div className="pressureWrapper">
         <img src={pressureIcon} alt="" className="pressureIcon" />
-        <h2 className="pressureValue">997hPa</h2>
+        <h2 className="pressureValue">{pressure}hPa</h2>
         <p className="pressureLabel">pressure</p>
       </div>
     </div>
@@ -21,3 +22,8 @@ const MiscForecast = () => {
 };
 
 export default MiscForecast;
+
+MiscForecast.propTypes = {
+  humidity: PropTypes.number,
+  pressure: PropTypes.number,
+};

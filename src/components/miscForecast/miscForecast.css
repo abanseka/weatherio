@@ -27,6 +27,12 @@
       font-size: clamp(18px, 24px, 32px);
     }
 
+    & .humidityLabel,
+    & .pressureLabel {
+      font-weight: 500;
+      font-size: clamp(14px, 18px, 22px);
+    }
+
     & img {
       width: 40px;
     }

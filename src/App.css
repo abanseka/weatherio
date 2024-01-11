@@ -1,15 +1,30 @@
+.app {
+  min-height: calc(100dvh - 50px);
+  position: relative;
+}
+
 .dashboard {
   width: 100%;
   max-width: 1440px;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100dvh - 150px);
   margin-inline: auto;
-  margin-block-start: 20px;
+  margin-block-start: 50px;
+  animation: fadeIn 1s ease-in;
 
   gap: 16px;
   display: grid;
   grid-template-areas:
     "one two three four"
     "five six six six";
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (width <= 1282px) {
