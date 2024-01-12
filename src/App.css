@@ -24,7 +24,8 @@
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .dashboard {
@@ -40,28 +41,6 @@
   grid-template-areas:
     "one two three four"
     "five six six six";
-}
-
-/********************** animations */
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes toastAnimation {
-  0% {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 /********************** animations */
