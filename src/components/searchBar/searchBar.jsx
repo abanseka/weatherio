@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
+import { UseGeolocation } from "../../hooks/useGeolocation";
 import mapPin from "../../assets/searchbar/mapPin.svg";
 import searchIcon from "../../assets/searchbar/searchIcon.svg";
 import "./searchBar.css";
 
-export const SearchBar = ({ query, setQuery }) => {
+export const SearchBar = ({ setQuery }) => {
+  const { userLocation } = UseGeolocation();
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       setQuery(e.currentTarget.value);
@@ -12,20 +14,22 @@ export const SearchBar = ({ query, setQuery }) => {
   };
 
   return (
-    <div className={`searchInput ${!query && "centeredSearch"}`}>
+    <div className="searchInput">
       <img src={searchIcon} alt="search icon" />
       <input
         type="text"
-        defaultValue={query}
         onKeyDown={handleKeyPress}
         placeholder="Search for your preferred city..."
       />
-      <img src={mapPin} alt="location icon" />
+      <img
+        src={mapPin}
+        alt="location icon"
+        onClick={() => setQuery(userLocation)}
+      />
     </div>
   );
 };
 
 SearchBar.propTypes = {
-  query: PropTypes.string.isRequired,
   setQuery: PropTypes.func.isRequired,
 };

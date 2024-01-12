@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { UseGeolocation } from "./useGeolocation";
 
 const roundDown = (num) => Math.floor(num);
 const convertToCelsius = (k) => k - 272.15;
@@ -6,30 +7,20 @@ const formatTime = (ts, opts = {}) =>
   new Date(ts * 1000).toLocaleString("en-US", opts);
 
 export const UseWeatherData = () => {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const { userLocation } = UseGeolocation();
+
   const [query, setQuery] = useState("");
   const [weatherData, setWeatherData] = useState({});
-
-  const hasQuery = !!query;
   const isCityFound = weatherData?.code !== 404;
-
-  const removeOnTimeOut = useCallback(() => {
-    const DELAY_TIME = 5;
-    const $errElement = document.querySelector(".notFound");
-    if (!$errElement) return;
-    setTimeout(() => {
-      $errElement.classList.add("hidden");
-    }, DELAY_TIME * 1000);
-
-    $errElement.classList.remove("hidden");
-  }, []);
 
   const fetchWeather = useCallback(async () => {
     try {
-      const apiKey = import.meta.env.VITE_API_KEY;
-      const baseUrl = import.meta.env.VITE_BASE_URL;
       const hourOpts = { hour: "numeric", minute: "numeric" };
       const dateOpts = { weekday: "long", day: "numeric", month: "short" };
 
+      // prettier-ignore
       const url = `${baseUrl}/weather?q=${query}&appid=${apiKey}`;
       const response = await fetch(url);
       const data = await response.json();
@@ -60,16 +51,33 @@ export const UseWeatherData = () => {
     } catch (err) {
       console.log(err);
     }
+    // eslint-disable-next-line
   }, [query]);
+
+  const removeOnTimeOut = useCallback(() => {
+    const DELAY_TIME = 5;
+    const $errEl = document.querySelector(".notFound");
+    if (!$errEl) return;
+
+    setTimeout(() => {
+      $errEl.classList.add("hidden");
+    }, DELAY_TIME * 1000);
+
+    $errEl.classList.remove("hidden");
+  }, []);
+
+  useEffect(() => {
+    setQuery(userLocation ?? "london");
+  }, [userLocation]);
 
   useEffect(() => {
     query ? fetchWeather() : removeOnTimeOut();
-  }, [fetchWeather, query, weatherData, removeOnTimeOut]);
+    // eslint-disable-next-line
+  }, [fetchWeather, removeOnTimeOut]);
 
   return {
     query,
     setQuery,
-    hasQuery,
     isCityFound,
     weatherData,
   };
