@@ -12,7 +12,7 @@ export const SearchBar = ({ query, setQuery }) => {
   };
 
   return (
-    <div className={`searchInput ${query === "" && "centeredSearch"}`}>
+    <div className={`searchInput ${!query && "centeredSearch"}`}>
       <img src={searchIcon} alt="search icon" />
       <input
         type="text"
