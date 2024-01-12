@@ -14,12 +14,6 @@
   transition: all 0.3s ease; /* Added smooth transition */
 }
 
-.centeredSearch {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-}
-
 .searchInput input {
   flex-grow: 1;
   height: 30px;
