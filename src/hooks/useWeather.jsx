@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { UseGeolocation } from "./useGeolocation";
+import { addAnimationDelay } from "../utils";
 
 const roundDown = (num) => Math.floor(num);
 const convertToCelsius = (k) => k - 272.15;
@@ -72,8 +73,12 @@ export const UseWeatherData = () => {
 
   useEffect(() => {
     query ? fetchWeather() : removeOnTimeOut();
-    // eslint-disable-next-line
-  }, [fetchWeather, removeOnTimeOut]);
+
+    addAnimationDelay("article");
+    setTimeout(() => {
+      addAnimationDelay(".hourlyForecastwrapper");
+    }, 1000);
+  }, [fetchWeather, removeOnTimeOut, query]);
 
   return {
     query,

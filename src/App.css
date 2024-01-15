@@ -33,7 +33,6 @@
   max-width: 1440px;
   margin-inline: auto;
   margin-block-start: 50px;
-  animation: fadeIn 1s ease-in;
   min-height: calc(100dvh - 150px);
 
   gap: 16px;
@@ -44,13 +43,21 @@
 }
 
 /********************** animations */
+article,
+.hourlyForecastwrapper {
+  opacity: 0;
+  transform: translateY(100px);
+  animation: slideIn 0.5s forwards;
+}
 
-@keyframes fadeIn {
+@keyframes slideIn {
   0% {
     opacity: 0;
+    transform: translateY(100px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
