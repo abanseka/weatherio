@@ -3,14 +3,14 @@ import "./locationTime.css";
 
 const LocationTime = ({ location, time, date }) => {
   return (
-    <div className="locationContainer">
+    <article className="locationContainer" aria-label="location container">
       <h2 className="locationName">{location}</h2>
 
       <div className="locationTimeDateContainer">
         <h1 className="locationTime">{time}</h1>
         <p className="locationDate">{date}</p>
       </div>
-    </div>
+    </article>
   );
 };
 

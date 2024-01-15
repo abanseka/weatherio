@@ -1,11 +1,11 @@
 import { UseWeatherData } from "./hooks/useWeather";
-import LocationTime from "./components/locationTime/locationTime";
-import { SearchBar } from "./components/searchBar/searchBar";
-import WeatherStatus from "./components/weatherStatus/weatherStatus";
-import TempSunCycle from "./components/tempSunCycle/tempSunCycle";
-import MiscForecast from "./components/miscForecast/miscForecast";
-import DailyForecast from "./components/dailyForecast/dailyForecast";
-import HourlyForecast from "./components/hourlyForecast/hourlyForecast";
+import LocationTime from "./widgets/locationTime/locationTime";
+import { SearchBar } from "./widgets/searchBar/searchBar";
+import WeatherStatus from "./widgets/weatherStatus/weatherStatus";
+import TempSunCycle from "./widgets/tempSunCycle/tempSunCycle";
+import MiscForecast from "./widgets/miscForecast/miscForecast";
+import DailyForecast from "./widgets/dailyForecast/dailyForecast";
+import HourlyForecast from "./widgets/hourlyForecast/hourlyForecast";
 import "./App.css";
 
 function App() {
@@ -13,11 +13,15 @@ function App() {
 
   return (
     <main className="app">
-      {!isCityFound && <p className="notFound">{weatherData?.errMsg}!</p>}
+      {!isCityFound && (
+        <p className="notFound" role="alert" aria-modal="true">
+          {weatherData?.errMsg}!
+        </p>
+      )}
 
       <SearchBar setQuery={setQuery} />
 
-      <div className="dashboard">
+      <section className="dashboard" aria-label="dashboard">
         <LocationTime
           location={weatherData?.location}
           time={weatherData?.time}
@@ -39,7 +43,7 @@ function App() {
 
         <DailyForecast />
         <HourlyForecast />
-      </div>
+      </section>
     </main>
   );
 }

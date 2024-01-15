@@ -5,7 +5,10 @@ import "./miscForecast.css";
 
 const MiscForecast = ({ pressure, humidity }) => {
   return (
-    <div className="miscContainer">
+    <article
+      className="miscContainer"
+      aria-label="humidity and pressure readings"
+    >
       <div className="humidityWrapper">
         <img src={humidityIcon} alt="" className="humidityIcon" />
         <h2 className="humidityValue">{humidity}%</h2>
@@ -17,7 +20,7 @@ const MiscForecast = ({ pressure, humidity }) => {
         <h2 className="pressureValue">{pressure}hPa</h2>
         <p className="pressureLabel">pressure</p>
       </div>
-    </div>
+    </article>
   );
 };
 

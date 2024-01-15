@@ -4,13 +4,13 @@ import "./weatherStatus.css";
 
 const WeatherStatus = ({ weather }) => {
   return (
-    <div className="weatherStatusContainer">
+    <article className="weatherStatusContainer" aria-label="weather status">
       <div className="weatherIconWrapper">
         <img src={weatherStatusIcon} alt="weather icon" />
       </div>
 
       <h2 className="weatherStatus">{weather}</h2>
-    </div>
+    </article>
   );
 };
 
