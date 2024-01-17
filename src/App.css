@@ -43,8 +43,7 @@
 }
 
 /********************** animations */
-article,
-.hourlyForecastwrapper {
+article {
   opacity: 0;
   transform: translateY(100px);
   animation: slideIn 0.5s forwards;
