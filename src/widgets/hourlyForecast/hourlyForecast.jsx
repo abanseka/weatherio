@@ -39,7 +39,10 @@ const HourlyForecast = () => {
   ];
 
   return (
-    <div className="hourlyForecastContainer">
+    <article
+      className="hourlyForecastContainer"
+      aria-label="3hour interval weather forecast"
+    >
       {hourlyForecastData.map(({ hour, wind, temp }, idx) => (
         <div
           key={+Date.now() + idx}
@@ -74,7 +77,7 @@ const HourlyForecast = () => {
           </div>
         </div>
       ))}
-    </div>
+    </article>
   );
 };
 

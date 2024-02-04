@@ -32,7 +32,7 @@
   }
 }
 
-@media (width <= 480px) {
+@media (max-width: 480px) {
   .dailyForecastContainer {
     padding: 10px;
   }

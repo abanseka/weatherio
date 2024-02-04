@@ -17,7 +17,10 @@ const DailyForecast = () => {
   ];
 
   return (
-    <div className="dailyForecastContainer">
+    <article
+      className="dailyForecastContainer"
+      aria-label="5days weather forecast"
+    >
       {forecastData.map((data, idx) => (
         <div className="dailyForecastWrapper" key={+Date.now() + idx}>
           <img src={data.icon} alt="weather icon" className="forecastIcon" />
@@ -25,7 +28,7 @@ const DailyForecast = () => {
           <p className="forecastDate">{data.date}</p>
         </div>
       ))}
-    </div>
+    </article>
   );
 };
 

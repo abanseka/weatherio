@@ -41,7 +41,7 @@
   text-align: center;
 }
 
-@media (width <= 480px) {
+@media (max-width: 480px) {
   .locationContainer {
     padding: 10px;
   }

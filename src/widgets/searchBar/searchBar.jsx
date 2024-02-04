@@ -14,7 +14,7 @@ export const SearchBar = ({ setQuery }) => {
   };
 
   return (
-    <div className="searchInput">
+    <nav className="searchInput" role="search" aria-label="search bar">
       <img src={searchIcon} alt="search icon" />
       <input
         type="text"
@@ -24,9 +24,10 @@ export const SearchBar = ({ setQuery }) => {
       <img
         src={mapPin}
         alt="location icon"
+        role="show user current location"
         onClick={() => setQuery(userLocation)}
       />
-    </div>
+    </nav>
   );
 };
 

@@ -33,7 +33,6 @@
   max-width: 1440px;
   margin-inline: auto;
   margin-block-start: 50px;
-  animation: fadeIn 1s ease-in;
   min-height: calc(100dvh - 150px);
 
   gap: 16px;
@@ -44,13 +43,20 @@
 }
 
 /********************** animations */
+article {
+  opacity: 0;
+  transform: translateY(100px);
+  animation: slideIn 0.5s forwards;
+}
 
-@keyframes fadeIn {
+@keyframes slideIn {
   0% {
     opacity: 0;
+    transform: translateY(100px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -67,7 +73,7 @@
 
 /***************** media queries */
 
-@media (width <= 1282px) {
+@media (max-width: 1282px) {
   .dashboard {
     grid-template-areas:
       "one two three"
@@ -76,7 +82,7 @@
   }
 }
 
-@media (width <= 930px) {
+@media (max-width: 930px) {
   .dashboard {
     grid-template-areas:
       "one three"
@@ -86,7 +92,7 @@
   }
 }
 
-@media (width <= 700px) {
+@media (max-width: 700px) {
   .dashboard {
     grid-template-areas:
       "one two"
@@ -97,7 +103,7 @@
   }
 }
 
-@media (width <= 620px) {
+@media (max-width: 620px) {
   .dashboard {
     grid-template-areas:
       "one one"
@@ -110,13 +116,13 @@
 }
 
 /* update track size */
-@media (width <= 1440px) {
+@media (max-width: 1440px) {
   .dashboard {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
 
-@media (width <= 420px) {
+@media (max-width: 420px) {
   .dashboard {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
