@@ -57,7 +57,7 @@
   }
 }
 
-@media (width <= 930px) {
+@media (max-width: 930px) {
   .hourlyForecastContainer {
     grid-template-areas:
       "h1 h2 h2 h3"
@@ -65,7 +65,7 @@
   }
 }
 
-@media (width <= 930px) {
+@media (max-width: 930px) {
   .hourlyForecastContainer {
     grid-template-areas:
       "h1 h2"
@@ -74,7 +74,7 @@
   }
 }
 
-@media (width <= 405px) {
+@media (max-width: 405px) {
   .hourlyForecastContainer {
     & .hourlyForecastwrapper {
       padding: 10px;
